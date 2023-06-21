@@ -3,6 +3,8 @@ namespace AdventOfCode2015{
 
         /*
         
+        https://adventofcode.com/2015/day/1
+
         --- Day 1: Not Quite Lisp ---
         Santa was hoping for a white Christmas, but his weather machine's "snow" function is powered by stars, and he's fresh out! 
         To save Christmas, he needs you to collect fifty stars by December 25th.
@@ -12,6 +14,7 @@ namespace AdventOfCode2015{
 
         Here's an easy puzzle to warm you up.
 
+        --- Part One ---
         Santa is trying to deliver presents in a large apartment building, but he can't find the right floor - the directions he got are a little confusing. 
         He starts on the ground floor (floor 0) and then follows the instructions one character at a time.
 
@@ -26,12 +29,47 @@ namespace AdventOfCode2015{
         ))((((( also results in floor 3.
         ()) and ))( both result in floor -1 (the first basement level).
         ))) and )())()) both result in floor -3.
+
         To what floor do the instructions take Santa?
+
+        To begin, get your puzzle input (PUZZLE_INPUT)
+
+        --- Part Two ---
+        Now, given the same instructions, find the position of the first character that causes him to enter the basement (floor -1). 
+        The first character in the instructions has position 1, the second character has position 2, and so on.
+
+        For example:
+
+        ) causes him to enter the basement at character position 1.
+        ()()) causes him to enter the basement at character position 5.
+        What is the position of the character that causes Santa to first enter the basement?
         
         */
 
+        const string PUZZLE_INPUT = "./src/2015/DayOne/input.txt";
+
         public static void Execute(){
-            Console.WriteLine("Hello World");
+
+            string input = File.ReadAllText(PUZZLE_INPUT);
+            char[] inputValues = input.ToCharArray();
+
+            int currentFloor = default;
+            int currentCharacterPosition = default;
+            bool theFirstBasementOccurrence = false;
+                
+            foreach (char item in inputValues){
+                
+                currentFloor = item == '(' ? ++currentFloor : --currentFloor;
+
+                if(!theFirstBasementOccurrence)
+                    currentCharacterPosition++;
+
+                if(currentFloor == -1)
+                    theFirstBasementOccurrence = true;
+            }
+
+            Console.WriteLine($"The answer for the part one is: {currentFloor}"); //138
+            Console.WriteLine($"The answer for the part two is: {currentCharacterPosition}"); //1771
         }
     }
 }
