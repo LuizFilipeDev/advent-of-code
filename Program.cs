@@ -10,7 +10,7 @@
     public class Program{
         public static void Main(string[] args){
 
-            AdventOfCode2015.DayOne.Execute();
+            AdventOfCode2015.DayTwo.Execute();
 
         }
     }
