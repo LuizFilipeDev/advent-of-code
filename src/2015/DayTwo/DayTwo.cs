@@ -40,6 +40,7 @@ namespace AdventOfCode2015{
 
             string[] dimensions = File.ReadAllLines(PUZZLE_INPUT);
             int totalWrappingPaper = default;
+            int totalFeetOfRibbon = default;
 
             foreach (string dimension in dimensions)
             {
@@ -55,10 +56,21 @@ namespace AdventOfCode2015{
 
                 int lowerValue = new int[3]{a, b, c}.Min();
 
+                if(lowerValue == a){
+                    totalFeetOfRibbon += (length * 2) + (width * 2) + (length * width * height); 
+                }
+                else if(lowerValue == b){
+                    totalFeetOfRibbon += (width * 2) + (height * 2) + (length * width * height);
+                }
+                else{
+                    totalFeetOfRibbon += (height * 2) + (length * 2) + (length * width * height);
+                }
+
                 totalWrappingPaper += (2 * (a + b + c)) + lowerValue;
             }
 
             Console.WriteLine($"The answer for the part one is: {totalWrappingPaper}"); //1586300
+            Console.WriteLine($"The answer for the part two is: {totalFeetOfRibbon}"); //3737498
         }
     }
 }
