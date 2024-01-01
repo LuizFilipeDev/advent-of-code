@@ -1,6 +1,6 @@
 # Advent of Code
 
-Advent of Code é um calendário de pequenos quebra-cabeças de programação para uma variedade de conjuntos de habilidades e níveis de habilidade que podem ser resolvidos em qualquer linguagem de programação que você deseja. Este repositório tem como foco resolver os problemas utilizando C#.
+Advent of Code is a calendar of short programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you want. This repository focuses on solving problems using C#.
 
 ## Link
 
